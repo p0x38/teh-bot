@@ -1,0 +1,6 @@
+key,min_level,max_level
+bronze,0,4
+silver,5,9
+gold,10,19
+platinum,20,49
+mythic,50,
