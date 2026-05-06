@@ -1,0 +1,16 @@
+[git]
+conventional_commits = true
+filter_unconventional = true
+require_conventional = false
+split_commits = false
+commit_parsers = [
+    { message = "^feat", group = "Features"},
+    { message = "^fix", group = "Bug Fixes"},
+    { message = "^doc", group = "Documentation"},
+    { message = "^perf", group = "Performance"},
+    { message = "^refactor", group = "Refactor"},
+    { message = "^chore", group = "Other Changes"},
+    { message = "^style", group = "Styling"},
+    { message = "^test", group = "Testing"}
+]
+tag_pattern = "v[0-9].*"
