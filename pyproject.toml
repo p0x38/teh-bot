@@ -43,6 +43,11 @@ start = "src.main:run"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.commitizen]
+version_provider = "uv"
+name = "cz_conventional_commits"
+version = "0.10.1"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/"]
 
