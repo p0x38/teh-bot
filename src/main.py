@@ -1,10 +1,13 @@
 import asyncio
 import os
+from importlib.metadata import version
 
 from dotenv import load_dotenv
 
 from .bot import TehBot
 from .logger import log
+
+__version__ = version("teh-bot")
 
 
 async def main():

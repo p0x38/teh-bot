@@ -44,9 +44,39 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.commitizen]
-version_provider = "uv"
 name = "cz_conventional_commits"
+version_provider = "uv"
+version_scheme = "semver"
+tag_format = "v$version"
+update_map_description = true
+major_version_zero = true
 version = "0.10.1"
+change_type_choices = [
+    { value = "feat", name = "feat: A new feature. Correlates with MINOR in SemVer" },
+    { value = "fix", name = "fix: A bug fix. Correlates with PATCH in SemVer" },
+    { value = "chore", name = "chore: Maintenance, build processes, or auxiliary tool changes" },
+    { value = "refactor", name = "refactor: A code change that neither fixes a bug nor adds a feature" },
+    { value = "docs", name = "docs: Documentation only changes" },
+    { value = "style", name = "style: Changes that do not affect the meaning of the code" },
+    { value = "perf", name = "perf: A code change that improves performance" },
+    { value = "test", name = "test: Adding missing or correcting existing tests" }
+]
+
+[tool.commitizen.customize]
+example_scopes = ["i18n", "plugin", "db", "leveling", "bot", "utils", "config", "scripts"]
+
+[tool.commitizen.changelog]
+template = "keepchangelog"
+sections = [
+    { value = "feat", label = "Features" },
+    { value = "fix", label = "Bug Fixes" },
+    { value = "refactor", label = "Refactors" },
+    { value = "perf", label = "Performance" },
+    { value = "build", label = "Build-System" },
+    { value = "chore", label = "Others" },
+    { value = "docs", label = "Documentation" },
+    { value = "test", label = "Tests" }
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/"]
