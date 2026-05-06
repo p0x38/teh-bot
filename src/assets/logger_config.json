@@ -1,0 +1,12 @@
+{
+    "level": "INFO",
+    "file_logging": {
+        "enabled": true,
+        "directory": "logs",
+        "encoding": "utf-8"
+    },
+    "console_logging": {
+        "rich_tracebacks": true,
+        "markup": true
+    }
+}

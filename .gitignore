@@ -5,6 +5,14 @@ build/
 dist/
 wheels/
 *.egg-info
+.pytest_cache/
+.ruff_cache/
 
 # Virtual environments
 .venv
+
+.env
+.fluent-cache
+exported.md
+cache/
+logs/
