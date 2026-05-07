@@ -17,5 +17,8 @@
         }
     },
     "files.trimTrailingWhitespace": true,
-    "scm.diffDecorationsIgnoreTrimWhitespace": "inherit"
+    "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
+    "conventionalCommits.scopes": [
+        "cogs"
+    ]
 }
