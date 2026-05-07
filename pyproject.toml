@@ -3,7 +3,7 @@ name = "teh-bot"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 dependencies = [
     "aiofiles>=25.1.0",
     "anyio>=4.13.0",
@@ -23,12 +23,23 @@ dependencies = [
     "pytest-xdist>=3.8.0",
     "rapidfuzz>=3.14.5",
     "watchdog>=6.0.0",
+    "distro>=1.9.0 ; sys_platform == 'linux'",
 ]
 
 [dependency-groups]
 dev = [
-    "dpytest>=0.7.0",
+    {include-group = "lint"},
+    {include-group = "test"},
+    {include-group = "vcs"}
+]
+lint = [
+    "ruff>=0.15.12",
+]
+vcs = [
     "git-cliff>=2.13.1",
+]
+test = [
+    "dpytest>=0.7.0",
     "pytest>=9.0.3",
     "pytest-asyncio>=1.3.0",
 ]
@@ -37,6 +48,15 @@ dev = [
 [project.scripts]
 export = "scripts.export_scripts:main"
 start = "src.main:run"
+
+[project.optional-dependencies]
+voice = [
+    "discord-py[voice]>=2.7.1",
+]
+speech = [
+    "edge-tts>=7.2.8",
+    "gtts>=2.5.4",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -75,3 +95,4 @@ select = [
 
 [tool.uv]
 managed = true
+default-groups = "all"
