@@ -6,6 +6,8 @@ from src.databases.models import UserXP
 from src.i18n import toI18nContext
 from src.leveling.tiers import get_tier
 
+from ..contexts.context import TehContext
+
 
 class LevelingCog(commands.Cog):
     def __init__(self, bot: TehBot):
@@ -65,7 +67,7 @@ class LevelingCog(commands.Cog):
 
     @commands.command(name="rank")
     @commands.guild_only()
-    async def rank(self, ctx: commands.Context):
+    async def rank(self, ctx: TehContext):
         data = await self.bot.db.get_user_level(ctx.author.id, ctx.guild.id)  # type: ignore
 
         await ctx.send(
@@ -74,7 +76,7 @@ class LevelingCog(commands.Cog):
 
     @commands.command(name="leaderboard")
     @commands.guild_only()
-    async def leaderboard(self, ctx: commands.Context):
+    async def leaderboard(self, ctx: TehContext):
         top = await self.bot.db.get_leveling_leaderboard(ctx.guild.id)  # type: ignore
 
         lines = []

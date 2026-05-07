@@ -1,6 +1,7 @@
 from discord.ext import commands
 
 from ..bot import TehBot
+from ..contexts.context import TehContext
 
 
 class UsageTracker(commands.Cog):
@@ -8,7 +9,7 @@ class UsageTracker(commands.Cog):
         self.bot = bot
 
     @commands.Cog.listener()
-    async def on_command_completion(self, ctx: commands.Context):
+    async def on_command_completion(self, ctx: TehContext):
         await self.bot.db.track_command_usage(
             guild_id=ctx.guild.id if ctx.guild else 0,
             user_id=ctx.author.id,
